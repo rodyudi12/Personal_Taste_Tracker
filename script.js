@@ -5,7 +5,7 @@ let favoriteFoods = ["Brazilian Barbecue", "Sushi", "Ramen", "Strogonoff", "Hamb
 
 
 // 2. Loop through the list and print: "One of my favorite foods is ______."
-for (let i = 0; i<6; i++) {
+for (let i = 0; i < favoriteFoods.length; i++) {
   console.log("One of my favorite foods is " + favoriteFoods[i])
 }
 
@@ -15,25 +15,25 @@ for (let i = 0; i<6; i++) {
 // "My #1 favorite food is Ramen" (copy/paste for all items)
 // "My #2 favorite food is Sushi"
 // ...etc.
-console.log("My #1 favorite food is Brazilian Barbecue");
-console.log("My #2 favorite food is Sushi");
-console.log("My #3 favorite food is Strogonoff");
-console.log("My #4 favorite food is Ramen");
-console.log("My #5 favorite food is Hamburguer");
-console.log("My #6 favorite food is Pizza");
-
+for (let i = 0; i < 6; i++) {
+  console.log("My #" + (i+1) + " favorite food is " + favoriteFoods[i]);
+}
 
 
 // 4a. Create a function printFoodRecommendation(foodName) that prints out the following for the foodName provided
     // "Have you ever tried ____?"
     // "I always recommend ____ to friends."
     // "Trust me — ____ is delicious."
-
-
-
+function printFoodRecommendation(foodName) {
+  console.log("Have you ever tried " + foodName);
+  console.log("I always recommend " + foodName + " to friends.");
+  console.log("Trust me - " + foodName + " is delicious.");
+}
 
 // 4b. Call the function at least 3 times
-
+printFoodRecommendation("Brazilian Barbecue")
+printFoodRecommendation("Sushi")
+printFoodRecommendation("Strogonoff")
 
 
 // Here's a list of 50 friends' favorite foods:
@@ -42,20 +42,39 @@ let friendFavorites = [
   ];
 
 // 5. Print out only foods that have an "a" in the name. For example, "Pizza" would not be included, but "Donuts" would be.
-
+for (let i=0; i<friendFavorites.length; i++) {
+  if (friendFavorites[i].includes("a")){
+    console.log(friendFavorites[i]);
+  }
+}
 
 
 // 6. Store the result in an array called foodsWithA. Print out the array.
-
-
+let foodsWithA = [];
+for (let i=0; i<friendFavorites.length; i++) {
+  if (friendFavorites[i].includes("a")){
+    foodsWithA.push(friendFavorites[i])
+  }
+}
+console.log(foodsWithA);
 
 // 7. Create a new array longFoodNames for foods with names longer than 6 characters.
-
-
+let longFoodNames = [];
+for (let i=0; i<friendFavorites.length; i++) {
+  if (friendFavorites[i].length > 6) {
+    longFoodNames.push(friendFavorites[i])
+  }
+}
+console.log(longFoodNames);
 
 // 8. Create another array shortFoodNames for foods 6 characters or shorter.
-
-
+let shortFoodNames = [];
+for(i=0; i<friendFavorites.length; i++) {
+  if(friendFavorites[i].length <= 6) {
+    shortFoodNames.push(friendFavorites[i])
+  }
+}
+console.log(shortFoodNames);
 
 // 9. Print both arrays and compare:
 // "There are more long-named foods." OR "There are more short-named foods."
